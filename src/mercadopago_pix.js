@@ -1,6 +1,6 @@
 const MercadoPagoSdk = require("./mercadopago_sdk");
 
-class MercadopagoProvider {
+class MercadopagoPix {
   #accessToken = null;
   #mercadoPagoSdk = null;
 
@@ -17,7 +17,7 @@ class MercadopagoProvider {
       hostname: "https://api.mercadopago.com/v1/payments",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer`,
+        Authorization: `Bearer ${this.#accessToken}`,
       },
     };
 
@@ -50,4 +50,4 @@ class MercadopagoProvider {
   }
 }
 
-module.exports = new MercadopagoProvider();
+exports.MercadopagoPix = MercadopagoPix;

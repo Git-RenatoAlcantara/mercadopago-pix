@@ -21,10 +21,11 @@ class MercadoPagoSdkApiCommunication {
     return response.data;
   }
 
-  async cancelOrder(orderId, options) {
+  async cancelOrder(orderId) {
     if (!this.accessToken)
       return new Error("Your access token can't be ampty!");
 
+    let time = Date.now().toString();
     const data = {
       status: "cancelled",
     };
@@ -33,7 +34,11 @@ class MercadoPagoSdkApiCommunication {
       `https://api.mercadopago.com/v1/payments/${orderId}`,
       data,
       {
-        headers: { Authorization: `Bearer ${this.accessToken}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.accessToken}`,
+          timestamp: time,
+        },
       }
     );
 

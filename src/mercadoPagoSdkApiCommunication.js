@@ -8,8 +8,6 @@ class MercadoPagoSdkApiCommunication {
   async createOrder(orderData, options) {
     if (!this.accessToken)
       return new Error("Your access token can't be ampty!");
-
-    console.log(this.accessToken);
     const response = await axios.post(
       "https://api.mercadopago.com/v1/payments",
       orderData,

@@ -1,8 +1,6 @@
-const mercadopagoPix = require("mercadopago-pix");
+const { mercadoPagoBrPix } = require("mercadopago-br-pix");
 
-mercadopagoPix.configure({
-  access_token: "YOUR_ACCESS_TOKEN",
-});
+mercadoPagoBrPix.configure("YOUR_ACCESS_TOKEN");
 
 const client = {
   transaction_amount: 0.01,
@@ -13,7 +11,7 @@ const client = {
   },
 };
 
-mercadopagoPix
-  .create({ client })
+mercadoPagoBrPix
+  .createOrder(client)
   .then((response) => console.log(response))
   .catch((error) => console.error(error));

@@ -1,10 +1,8 @@
-const mercadopagoPix = require("mercadopago-pix");
+const { mercadoPagoBrPix } = require("mercadopago-br-pix");
 
-mercadopagoPix.configure({
-  access_token: "YOUR_ACCESS_TOKEN",
-});
+mercadoPagoBrPix.configure("YOUR_ACCESS_TOKEN");
 
-mercadopagoPix
-  .status({ order_id: "55825357735" })
+mercadoPagoBrPix
+  .getOrderStatus({ order_id: "55825357735" })
   .then((response) => console.log(response.status))
   .catch((err) => console.error(err));

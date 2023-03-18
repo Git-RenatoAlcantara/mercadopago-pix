@@ -1,5 +1,5 @@
 {
-  "name": "mercadopago-pix",
+  "name": "mercadopago-br-pix",
   "version": "1.0.0",
   "description": "",
   "main": "./index.js",

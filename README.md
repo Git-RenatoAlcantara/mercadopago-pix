@@ -9,7 +9,7 @@ A biblioteca MercadoPagoPix é uma solução para integração de pagamentos com
 To import the `mercadopagoPix` library in your Node.js application, you can use the `require` statement as follows:
 
 ```javascript
-const mercadopagoPix = require("mercadopago-pix");
+const { mercadoPagoBrPix } = require("mercadopago-br-pix");
 ```
 
 This will import the `mercadopagoPix` object which contains the methods `configure`, `create`, `cancel` and `status`, and the `client` object which contains the payment information.
@@ -17,9 +17,7 @@ This will import the `mercadopagoPix` object which contains the methods `configu
 To use the library, first call the `configure` method passing in your MercadoPago access token:
 
 ```javascript
-mercadopagoPix.configure({
-  access_token: "YOUR_ACCESS_TOKEN",
-});
+mercadoPagoBrPix.configure(access_token);
 ```
 
 Then, you can create a payment by calling the `create` method, passing in the `client` object with the payment information:
@@ -48,21 +46,17 @@ const client = {
   },
 };
 
-const payment = await mercadopagoPix.create({ client });
+const payment = await mercadoPagoBrPix.createOrder(client);
 ```
 
 To cancel a payment, you can call the `cancel` method passing in the `order_id`:
 
 ```javascript
-const result = await mercadopagoPix.cancel({
-  order_id: "YOUR_ORDER_ID",
-});
+const result = await mercadoPagoBrPix.cancelOrder(order_id: "YOUR_ORDER_ID");
 ```
 
 To check the status of a payment, you can call the `status` method passing in the `order_id`:
 
 ```javascript
-const result = await mercadopagoPix.status({
-  order_id: "YOUR_ORDER_ID",
-});
+const result = await mercadoPagoBrPix.getOrderStatus(order_id: "YOUR_ORDER_ID");
 ```

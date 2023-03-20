@@ -24,7 +24,7 @@ Then, you can create a payment by calling the `create` method, passing in the `c
 
 ```javascript
 const client = {
-  transaction_amount: "100",
+  transaction_amount: 10,
   description: "Test payment",
   payment_method_id: "pix",
   payer: {
@@ -52,11 +52,11 @@ const payment = await mercadoPagoBrPix.createOrder(client);
 To cancel a payment, you can call the `cancel` method passing in the `order_id`:
 
 ```javascript
-const result = await mercadoPagoBrPix.cancelOrder(order_id: "YOUR_ORDER_ID");
+const result = await mercadoPagoBrPix.cancelOrder("YOUR_ORDER_ID");
 ```
 
 To check the status of a payment, you can call the `status` method passing in the `order_id`:
 
 ```javascript
-const result = await mercadoPagoBrPix.getOrderStatus(order_id: "YOUR_ORDER_ID");
+const result = await mercadoPagoBrPix.getOrderStatus("YOUR_ORDER_ID");
 ```
